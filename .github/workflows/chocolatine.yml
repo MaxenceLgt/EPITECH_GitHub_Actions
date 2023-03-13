@@ -7,9 +7,9 @@ on:
     branches-ingore:
       - 'ga-ignore-*'
 
-env:
-  MIRROR_URL: ${{ string }}
-  EXECUTABLES: ${{ string }}
+#env:
+#  MIRROR_URL: ${{ string }}
+#  EXECUTABLES: ${{ string }}
 
 jobs:
   check_coding_style:
