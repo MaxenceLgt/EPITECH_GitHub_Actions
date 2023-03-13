@@ -7,9 +7,9 @@ on:
     branches-ingore:
       - 'ga-ignore-*'
 
-#env:
-#  MIRROR_URL: ${{ string }}
-#  EXECUTABLES: ${{ string }}
+environement:
+  MIRROR_URL: ${{ string }}
+  EXECUTABLES: ${{ string }}
 
 jobs:
   check_coding_style:
@@ -17,7 +17,10 @@ jobs:
     container: ghcr.io/epitech/coding-style-checker:latest
     steps:
       - uses: actions/checkout@v3
-      - run: check.sh $(pwd) $(pwd)
+      - run: |
+      check.sh $(pwd) $(pwd)
+      cat coding-style-reports.log
+
 
 
 ##  check_program_compilation:
