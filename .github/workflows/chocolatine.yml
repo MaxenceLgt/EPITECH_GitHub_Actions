@@ -1,0 +1,45 @@
+name: Chocolatine
+on:
+  push:
+    branches-ignore:
+      - 'ga-ignore-*'
+  pull_request:
+    branches-ingore:
+      - 'ga-ignore-*'
+
+env:
+  MIRROR_URL: ${{ string }}
+  EXECUTABLES: ${{ string }}
+
+jobs:
+  check_coding_style:
+    runs-on: ubuntu-latest
+    container: ghcr.io/epitech/coding-style-checker:latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: check.sh $(pwd) $(pwd)
+
+
+##  check_program_compilation:
+##    runs-on: ubuntu-latest
+##    container: epitechcontent/epitest-docker
+##    uses: actions/checkout@v3
+##    needs: check_coding_style
+##    steps:
+##      - run: make
+##        timeout-minutes: 2
+##      - run: make clean
+##    
+##
+##  run_tests:
+##    runs-on: ubuntu-latest
+##    container: epitechcontent/epitest-docker
+##    uses: actions/checkout@v3
+##    needs: check_program_compilation
+##    steps:
+##
+##  push_to_mirror:
+##    runs-on: ubuntu-latest
+##    uses: actions/checkout@v3
+##    needs: run_tests
+##    steps:
