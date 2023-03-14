@@ -18,7 +18,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: check.sh $(pwd) $(pwd)
-      - run: cat coding-style-reports.log
+      - if : startsWith( wc -c coding-style-reports.log, '0' ) == false
+        run: cat coding-style-reports.log
 
 
 
