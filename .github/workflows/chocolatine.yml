@@ -47,13 +47,15 @@ jobs:
 ##      - run: make clean
     
 
-##  run_tests:
-##    runs-on: ubuntu-latest
-##    container: epitechcontent/epitest-docker
-##    uses: actions/checkout@v3
-##    needs: check_program_compilation
-##    steps:
-##
+  run_tests:
+    runs-on: ubuntu-latest
+    container: epitechcontent/epitest-docker
+    uses: actions/checkout@v3
+    needs: check_coding_style
+    steps:
+      - run: make tests_run
+        timeout-minutes: 2
+
 ##  push_to_mirror:
 ##    runs-on: ubuntu-latest
 ##    uses: actions/checkout@v3
