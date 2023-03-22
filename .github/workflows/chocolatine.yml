@@ -21,7 +21,7 @@ jobs:
       - run: |
           FILENAME=coding-style-reports.log
           if [ ! -s "${FILENAME}" ]; then
-            
+            echo ""
           else
             while IFS=$'\n'; read line
             do
