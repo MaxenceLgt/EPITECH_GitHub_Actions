@@ -26,8 +26,8 @@ jobs:
             while IFS=$'\n'; read line
             do
               TEMP=$(echo $line)
-              FILE=$(cut $TEMP -d : -f 1)
-              LINE=$(cut $TEMP -d : -f 2)
+              FILE=$(echo $TEMP | cut -d : -f 1)
+              LINE=$(echo $TEMP | cut -d : -f 2)
               echo "::error file=$FILE,line=$LINE"
             done < "${FILENAME}"
           fi
