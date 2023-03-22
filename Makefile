@@ -7,7 +7,7 @@
 
 SRC	=
 
-MAIN =
+MAIN = main.c
 
 INCLUDE =
 
