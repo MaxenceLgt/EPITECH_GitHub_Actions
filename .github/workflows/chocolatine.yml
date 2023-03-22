@@ -18,10 +18,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: check.sh $(pwd) $(pwd)
-      - if : startsWith(coding-style-reports.log, ' ' ) == false
-        run: cat coding-style-reports.log
-
-
+      - run: |
+        FILENAME=coding-style-reports.log
+        if [ ! -s "${FILENAME}" ]; then
+          echo "File empty"
+        else
+          while IFS=$'\n'; read line
+          do
+            TEMP=$(echo $line)
+            echo ::error $TEMP
+          done < "${FILENAME}"
+        fi
 
 ##  check_program_compilation:
 ##    runs-on: ubuntu-latest
