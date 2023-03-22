@@ -29,7 +29,7 @@ jobs:
               FILE=$(echo $TEMP | cut -d : -f 1)
               LINE=$(echo $TEMP | cut -d : -f 2)
               TITLE=$(echo $TEMP | cut -d : -f 3)
-              TITLE=$TITLE + $(echo coding-style error:)
+              TITLE="$TITLE coding style error:"
               ELEMENT=$(echo $TEMP | cut -d : -f 4)
               echo "::error file=$FILE,line=$LINE,title=$TITLE::$ELEMENT"
             done < "${FILENAME}"
