@@ -36,21 +36,21 @@ jobs:
             exit 1
           fi
 
-##  check_program_compilation:
-##    runs-on: ubuntu-latest
-##    container: epitechcontent/epitest-docker
-##    uses: actions/checkout@v3
-##    needs: check_coding_style
-##    steps:
-##      - run: make
-##        timeout-minutes: 2
-##      - run: make clean
+  check_program_compilation:
+    runs-on: ubuntu-latest
+    container: epitechcontent/epitest-docker
+    uses: actions/checkout@v3
+    needs: check_coding_style
+    steps:
+      - run: make
+        timeout-minutes: 2
+      - run: make clean
     
 
   run_tests:
     runs-on: ubuntu-latest
     container: epitechcontent/epitest-docker
-    needs: check_coding_style
+    needs: check_program_compilation
     steps:
       - uses: actions/checkout@v3
       - run: make tests_run
