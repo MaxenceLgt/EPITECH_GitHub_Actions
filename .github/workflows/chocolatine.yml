@@ -9,7 +9,7 @@ on:
 
 env:
   MIRROR_URL: git@github.com:EpitechPromo2027/B-DOP-200-REN-2-1-chocolatine-maxence.largeot.git
-  EXECUTABLES: pushswap
+  EXECUTABLES: "pushswap"
 
 jobs:
   check_coding_style:
@@ -49,7 +49,7 @@ jobs:
           while IFS=','; read line
           do
             find -name $line || exit 1
-          done < "${{ env.EXECUTABLE }}"
+          done < "${{ env.EXECUTABLES }}"
         
     
   run_tests:
