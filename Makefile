@@ -11,7 +11,7 @@ MAIN = main.c
 
 INCLUDE =
 
-NAME	=	test
+NAME	=	pushswap
 
 CFLAGS = $(INCLUDE:%=-I%)
 
