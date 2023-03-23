@@ -45,6 +45,12 @@ jobs:
       - run: make
         timeout-minutes: 2
       - run: make clean
+      - run: |
+      while IFS=','; read line
+      do
+        find -name $line || exit 1
+      done < "${{ env.EXECUTABLE }}"
+        
     
   run_tests:
     runs-on: ubuntu-latest
