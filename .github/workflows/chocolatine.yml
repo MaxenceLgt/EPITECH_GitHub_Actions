@@ -46,10 +46,10 @@ jobs:
         timeout-minutes: 2
       - run: make clean
       - run: |
-      while IFS=','; read line
-      do
-        find -name $line || exit 1
-      done < "${{ env.EXECUTABLE }}"
+        while IFS=','; read line
+        do
+          find -name $line || exit 1
+        done < "${{ env.EXECUTABLE }}"
         
     
   run_tests:
