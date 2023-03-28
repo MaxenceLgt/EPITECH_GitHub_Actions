@@ -49,9 +49,9 @@ jobs:
           while IFS=','; read line
           do
             find -name $line || exit 1
-              if [ ! -x $line ]; then
-                exit 1
-              fi
+            if [ ! -x $line ]; then
+              exit 1
+            fi
           done < "${{ env.EXECUTABLES }}"
         
     
