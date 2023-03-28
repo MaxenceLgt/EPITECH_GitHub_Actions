@@ -46,15 +46,16 @@ jobs:
         timeout-minutes: 2
       - run: make clean
       - run: |
-          while IFS=','; read line
+          IFS=',' read -r -a array <<< "${{ env.EXECUTABLE }}"
+          for element in "${array[@]}"
           do
+            echo $line
             if [[ -f $line && -x $line ]]; then
               continue
             else
               exit 1
             fi
-          done < "${{ env.EXECUTABLES }}"
-        
+          done
     
   run_tests:
     runs-on: ubuntu-latest
