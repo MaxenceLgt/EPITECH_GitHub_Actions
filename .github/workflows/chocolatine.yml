@@ -48,8 +48,7 @@ jobs:
       - run: |
           while IFS=','; read line
           do
-            find -name $line || exit 1
-            if [ ! -x $line ]; then
+            if [ ! -f $line || ! -x $line ]; then
               exit 1
             fi
           done < "${{ env.EXECUTABLES }}"
