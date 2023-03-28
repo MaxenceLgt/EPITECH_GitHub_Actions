@@ -50,8 +50,9 @@ jobs:
           do
             if [[ -f $line && -x $line ]]; then
               continue
+            else
+              exit 1
             fi
-            exit 1
           done < "${{ env.EXECUTABLES }}"
         
     
