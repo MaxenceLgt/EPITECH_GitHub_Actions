@@ -48,7 +48,7 @@ jobs:
       - run: |
           while IFS=','; read line
           do
-            if [ -f $line && -x $line ]; then
+            if [[ -f $line && -x $line ]]; then
               continue
             fi
             exit 1
